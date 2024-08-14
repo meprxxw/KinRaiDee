@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="styles.css">
+
+        <title>KinRaiDee_restaurant</title>
+
+        <!--logo-->
+        <link rel="shortcut icon" href="/pics/KinRaiDee_Logo.png"type="image/x=icon">
+
+        <!--font-->
+        <link href="https://fonts.googleapis.com/css2?family=Chonburi&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    </head>
+    <div>
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-chevron-up scrolltop__icon'></i>
+        </a>
+
+        <!--========== HEADER ==========-->
+        <header class="l-header" id="header">
+            <nav class="nav bd-container">
+                <img src="/pics/KinRaiDee_Logo.png" alt="your device isn't support this photo" style="width:3rem ;height:3rem">
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index.html" class="nav__link">หน้าแรก</a></li>
+                        <li class="nav__item"><a href="about.html" class="nav__link ">เกี่ยวกับเรา</a></li>
+                        <li class="nav__item"><a href="random.html" class="nav__link">สุ่มเมนูอาหาร</a></li>
+                        <li class="nav__item"><a href="restaurant.html" class="nav__link active-link">ร้านอาหารแนะนำ</a></li>
+                        <li class="nav__item"><a href="contact.html" class="nav__link">ติดต่อเรา</a></li>
+
+                        <li><i class='bx bx-moon change-theme' id="theme-button"></i></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <div class="wrapper">
+            <!-- filter Items -->
+            <nav class="restaurant_nav">
+              <div class="restaurant_items">
+                <span class="restaurant_item active" data-filter="all">ทั้งหมด</span>
+                <span class="restaurant_item" data-filter="Thai food">อาหารไทย</span>
+                <span class="restaurant_item" data-filter="Street food">Street Food</span>
+                <span class="restaurant_item" data-filter="dessert">ขนมหวาน</span>
+                <span class="restaurant_item" data-filter="cafe">คาเฟ่</span>
+                <span class="restaurant_item" data-filter="other">อื่นๆ</span>
+              </div>
+            </nav>
+            <!-- filter Images -->
+            <div class="restaurant_container">
+              <div class="restaurant_image" data-number="p-1" data-name="Thai food"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-2" data-name="Thai food"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-3" data-name="cafe"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-4" data-name="cafe"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-5" data-name="dessert"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-6" data-name="Street food"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-7" data-name="Street food"><span><img src="/pics/plate.jpg" alt=""></span></div>
+              <div class="restaurant_image" data-number="p-8" data-name="other"><span><img src="/pics/plate.jpg" alt=""></span></div>
+            </div>
+          </div>
+          <script>
+            let list=document.querySelectorAll(".restaurant_item")
+            let itembox=document.querySelectorAll(".restaurant_image")
+
+            for(let i=0;i<list.length;i++){
+              list[i].addEventListener("click",function(){
+                for(let j=0; j<list.length;j++){
+                  list[j].classList.remove("active");
+                }
+                this.classList.add("active");
+
+                let dataFilter = this.getAttribute("data-filter");
+
+                for (let k=0;k<itembox.length;k++){
+                  itembox[k].classList.remove('active');
+                  itembox[k].classList.add('hide');
+                  if(itembox[k].getAttribute("data-name") == dataFilter ||
+                  dataFilter =="all"){
+                    itembox[k].classList.add('active');
+                    itembox[k].classList.remove('hide');
+                  }
+        
+                }
+              })
+            }
+          </script>
+     
+          <div class="products-preview">
+
+            <div class="preview" data-target="p-1">
+              <i class="fas fa-times"></i>
+              <img src="pics/plate.jpg" alt="">
+              <h3>organic food</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+            </div>
+       
+            <div class="preview" data-target="p-2">
+              <i class="fas fa-times"></i>
+              <img src="images/6.png" alt="">
+              <h3>organic potatoes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+            </div>
+          
+            <div class="preview" data-target="p-3">
+              <i class="fas fa-times"></i>
+              <img src="images/6.png" alt="">
+              <h3>organic potatoes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+            </div>
+
+       
+            <div class="preview" data-target="p-4">
+              <i class="fas fa-times"></i>
+              <img src="images/6.png" alt="">
+              <h3>organic potatoes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+            </div>
+       
+            <div class="preview" data-target="p-5">
+              <i class="fas fa-times"></i>
+              <img src="images/6.png" alt="">
+              <h3>organic potatoes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+            </div>
+       
+            <div class="preview" data-target="p-6">
+               <i class="fas fa-times"></i>
+               <img src="images/6.png" alt="">
+               <h3>organic potatoes</h3>
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+               <div class="buttons">
+                  <a href="#" class="buy">buy now</a>
+                  <a href="#" class="cart">add to cart</a>
+               </div>
+            </div>
+
+            <div class="preview" data-target="p-7">
+              <i class="fas fa-times"></i>
+              <img src="images/6.png" alt="">
+              <h3>organic potatoes</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+              <div class="buttons">
+                 <a href="#" class="buy">buy now</a>
+                 <a href="#" class="cart">add to cart</a>
+              </div>
+           </div> 
+
+           <div class="preview" data-target="p-8">
+            <i class="fas fa-times"></i>
+            <img src="images/6.png" alt="">
+            <h3>organic potatoes</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, dolorem.</p>
+            <div class="buttons">
+               <a href="#" class="buy">buy now</a>
+               <a href="#" class="cart">add to cart</a>
+            </div>
+           </div>    
+       </div>
+     
+     
+    
+    
+
+      <script src="main.js"></script>
+    </body>
+</html>
